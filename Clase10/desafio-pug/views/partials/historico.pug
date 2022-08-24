@@ -1,0 +1,18 @@
+div
+    h2(style='color:blue;') Vista de Productos
+    br
+    if DB_PRODUCTOS.length > 0
+        div(class="table-responsive")
+            table.table.table-dark
+                tr(style='color: yellow;')
+                    th Nombre
+                    th Precio
+                    th Foto URL
+                each producto in DB_PRODUCTOS        
+                    tr
+                        td=producto.nombre
+                        td=producto.precio
+                        td
+                            img(width="40" src=producto.fotoUrl, alt="")
+    else 
+        h3(class="alert alert-warning")='No se encontraron productos'

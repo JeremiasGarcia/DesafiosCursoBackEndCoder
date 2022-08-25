@@ -46,7 +46,6 @@ app.post('/productos', (req, res)=>{
     const newProd = {id: newId, ...req.body};
     DB_PRODUCTOS.push(newProd);
     res.redirect('/');
-    res.status(201).json({msg: 'Agregado!', data: newProd});
 });
 
 /* ---------------------- Servidor ----------------------*/

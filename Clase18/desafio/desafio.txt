@@ -1,0 +1,502 @@
+show dbs
+admin   40.00 KiB
+config  72.00 KiB
+local   72.00 KiB
+use ecommerce
+'switched to db ecommerce'
+1 y 2)
+    db.mensajes.insertMany([
+        { author: "Juan", text: "¡Hola! ¿Que tal?" },
+        { author: "Pedro", text: "¡Muy bien! ¿Y vos?" },
+        { author: "Ana", text: "¡Genial!" },
+        { author: "Jeremias", text: "¡Hola! ¿Como les va?" },
+        { author: "Lara", text: "¡Buen dia!" },
+        { author: "Daniel", text: "¡Buenas! ¿Y vos?" },
+        { author: "Laura", text: "¡Buen dia! ¿Como andan?" },
+        { author: "Florencia", text: "¡Holaaaa!" },
+        { author: "Antonella", text: "¡Hola! Con sueño..." },
+        { author: "Gonzalo", text: "¡Buen dia! Yo tambien jajajaja" }
+    ])
+    { acknowledged: true,
+    insertedIds: 
+    { '0': ObjectId("632cbda6581e3554d654cdf8"),
+        '1': ObjectId("632cbda6581e3554d654cdf9"),
+        '2': ObjectId("632cbda6581e3554d654cdfa"),
+        '3': ObjectId("632cbda6581e3554d654cdfb"),
+        '4': ObjectId("632cbda6581e3554d654cdfc"),
+        '5': ObjectId("632cbda6581e3554d654cdfd"),
+        '6': ObjectId("632cbda6581e3554d654cdfe"),
+        '7': ObjectId("632cbda6581e3554d654cdff"),
+        '8': ObjectId("632cbda6581e3554d654ce00"),
+        '9': ObjectId("632cbda6581e3554d654ce01") } }
+    db.productos.insertMany([
+        { 
+            id: 1,
+            nombre: "Calculadora",
+            precio: 120,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 2,
+            nombre: "Teclado",
+            precio: 580,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 3,
+            nombre: "Mouse",
+            precio: 900,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 4,
+            nombre: "Monitor",
+            precio: 1280,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 5,
+            nombre: "Auricular",
+            precio: 1700,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 6,
+            nombre: "Mouse Pad",
+            precio: 2300,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 7,
+            nombre: "Pendrive",
+            precio: 2860,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 8,
+            nombre: "Parlante",
+            precio: 3350,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 9,
+            nombre: "Celular",
+            precio: 4320,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+        { 
+            id: 910,
+            nombre: "Notebook",
+            precio: 4990,
+            fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
+        },
+    ])
+    { acknowledged: true,
+    insertedIds: 
+    { '0': ObjectId("632cbef7581e3554d654ce02"),
+        '1': ObjectId("632cbef7581e3554d654ce03"),
+        '2': ObjectId("632cbef7581e3554d654ce04"),
+        '3': ObjectId("632cbef7581e3554d654ce05"),
+        '4': ObjectId("632cbef7581e3554d654ce06"),
+        '5': ObjectId("632cbef7581e3554d654ce07"),
+        '6': ObjectId("632cbef7581e3554d654ce08"),
+        '7': ObjectId("632cbef7581e3554d654ce09"),
+        '8': ObjectId("632cbef7581e3554d654ce0a"),
+        '9': ObjectId("632cbef7581e3554d654ce0b") } }
+
+
+
+
+
+3)
+    db.mensajes.find()
+    { _id: ObjectId("632cbda6581e3554d654cdf8"),
+    author: 'Juan',
+    text: '¡Hola! ¿Que tal?' }
+    { _id: ObjectId("632cbda6581e3554d654cdf9"),
+    author: 'Pedro',
+    text: '¡Muy bien! ¿Y vos?' }
+    { _id: ObjectId("632cbda6581e3554d654cdfa"),
+    author: 'Ana',
+    text: '¡Genial!' }
+    { _id: ObjectId("632cbda6581e3554d654cdfb"),
+    author: 'Jeremias',
+    text: '¡Hola! ¿Como les va?' }
+    { _id: ObjectId("632cbda6581e3554d654cdfc"),
+    author: 'Lara',
+    text: '¡Buen dia!' }
+    { _id: ObjectId("632cbda6581e3554d654cdfd"),
+    author: 'Daniel',
+    text: '¡Buenas! ¿Y vos?' }
+    { _id: ObjectId("632cbda6581e3554d654cdfe"),
+    author: 'Laura',
+    text: '¡Buen dia! ¿Como andan?' }
+    { _id: ObjectId("632cbda6581e3554d654cdff"),
+    author: 'Florencia',
+    text: '¡Holaaaa!' }
+    { _id: ObjectId("632cbda6581e3554d654ce00"),
+    author: 'Antonella',
+    text: '¡Hola! Con sueño...' }
+    { _id: ObjectId("632cbda6581e3554d654ce01"),
+    author: 'Gonzalo',
+    text: '¡Buen dia! Yo tambien jajajaja' }
+    db.productos.find()
+    { _id: ObjectId("632cbef7581e3554d654ce02"),
+    id: 1,
+    nombre: 'Calculadora',
+    precio: 120,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce03"),
+    id: 2,
+    nombre: 'Teclado',
+    precio: 580,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce04"),
+    id: 3,
+    nombre: 'Mouse',
+    precio: 900,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce05"),
+    id: 4,
+    nombre: 'Monitor',
+    precio: 1280,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce06"),
+    id: 5,
+    nombre: 'Auricular',
+    precio: 1700,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce07"),
+    id: 6,
+    nombre: 'Mouse Pad',
+    precio: 2300,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce08"),
+    id: 7,
+    nombre: 'Pendrive',
+    precio: 2860,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce09"),
+    id: 8,
+    nombre: 'Parlante',
+    precio: 3350,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce0a"),
+    id: 9,
+    nombre: 'Celular',
+    precio: 4320,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+    { _id: ObjectId("632cbef7581e3554d654ce0b"),
+    id: 910,
+    nombre: 'Notebook',
+    precio: 4990,
+    fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+
+
+
+
+
+4)
+    db.mensajes.estimatedDocumentCount()
+    10
+    db.productos.estimatedDocumentCount()
+    10
+
+
+
+
+
+5)
+    a)
+        db.productos.insertOne({nombre: 'Tablet',
+        precio: 3950,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png'})
+        { acknowledged: true,
+        insertedId: ObjectId("632cc07c581e3554d654ce0c") }
+        db.productos.estimatedDocumentCount()
+        11
+    b)
+        db.productos.find({nombre: "Notebook"})
+        { _id: ObjectId("632cbef7581e3554d654ce0b"),
+        id: 910,
+        nombre: 'Notebook',
+        precio: 4990,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+        i)
+            db.productos.find({precio:{$lt:1000}})
+            { _id: ObjectId("632cbef7581e3554d654ce02"),
+            id: 1,
+            nombre: 'Calculadora',
+            precio: 120,
+            fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+            { _id: ObjectId("632cbef7581e3554d654ce03"),
+            id: 2,
+            nombre: 'Teclado',
+            precio: 580,
+            fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+            { _id: ObjectId("632cbef7581e3554d654ce04"),
+            id: 3,
+            nombre: 'Mouse',
+            precio: 900,
+            fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+        ii)
+        db.productos.find({$and: [ {precio:{$gte: 1000}},{precio: {$lte: 3000}} ] })
+        { _id: ObjectId("632cbef7581e3554d654ce05"),
+        id: 4,
+        nombre: 'Monitor',
+        precio: 1280,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+        { _id: ObjectId("632cbef7581e3554d654ce06"),
+        id: 5,
+        nombre: 'Auricular',
+        precio: 1700,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+        { _id: ObjectId("632cbef7581e3554d654ce07"),
+        id: 6,
+        nombre: 'Mouse Pad',
+        precio: 2300,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+        { _id: ObjectId("632cbef7581e3554d654ce08"),
+        id: 7,
+        nombre: 'Pendrive',
+        precio: 2860,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+        iii)
+            db.productos.find({precio: {$gt: 3000}})
+            { _id: ObjectId("632cbef7581e3554d654ce09"),
+            id: 8,
+            nombre: 'Parlante',
+            precio: 3350,
+            fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+            { _id: ObjectId("632cbef7581e3554d654ce0a"),
+            id: 9,
+            nombre: 'Celular',
+            precio: 4320,
+            fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+            { _id: ObjectId("632cbef7581e3554d654ce0b"),
+            id: 910,
+            nombre: 'Notebook',
+            precio: 4990,
+            fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+            { _id: ObjectId("632cc07c581e3554d654ce0c"),
+            nombre: 'Tablet',
+            precio: 3950,
+            fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png' }
+        iv)
+            db.productos.find({},{"_id":0, "nombre":1}).sort({precio: 1}).skip(2).limit(1)
+            { nombre: 'Mouse' }
+    c)
+        db.productos.updateMany({}, {$set: {stock: 100}})
+        { acknowledged: true,
+        insertedId: null,
+        matchedCount: 11,
+        modifiedCount: 11,
+        upsertedCount: 0 }
+        db.productos.find()
+        { _id: ObjectId("632cbef7581e3554d654ce02"),
+        id: 1,
+        nombre: 'Calculadora',
+        precio: 120,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce03"),
+        id: 2,
+        nombre: 'Teclado',
+        precio: 580,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce04"),
+        id: 3,
+        nombre: 'Mouse',
+        precio: 900,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce05"),
+        id: 4,
+        nombre: 'Monitor',
+        precio: 1280,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce06"),
+        id: 5,
+        nombre: 'Auricular',
+        precio: 1700,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce07"),
+        id: 6,
+        nombre: 'Mouse Pad',
+        precio: 2300,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce08"),
+        id: 7,
+        nombre: 'Pendrive',
+        precio: 2860,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce09"),
+        id: 8,
+        nombre: 'Parlante',
+        precio: 3350,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce0a"),
+        id: 9,
+        nombre: 'Celular',
+        precio: 4320,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce0b"),
+        id: 910,
+        nombre: 'Notebook',
+        precio: 4990,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cc07c581e3554d654ce0c"),
+        nombre: 'Tablet',
+        precio: 3950,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+
+    d)
+        db.productos.updateMany({precio: {$gt: 4000}}, {$set: {stock: 0}})
+        { acknowledged: true,
+        insertedId: null,
+        matchedCount: 2,
+        modifiedCount: 2,
+        upsertedCount: 0 }
+        db.productos.find()
+        { _id: ObjectId("632cbef7581e3554d654ce02"),
+        id: 1,
+        nombre: 'Calculadora',
+        precio: 120,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce03"),
+        id: 2,
+        nombre: 'Teclado',
+        precio: 580,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce04"),
+        id: 3,
+        nombre: 'Mouse',
+        precio: 900,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce05"),
+        id: 4,
+        nombre: 'Monitor',
+        precio: 1280,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce06"),
+        id: 5,
+        nombre: 'Auricular',
+        precio: 1700,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce07"),
+        id: 6,
+        nombre: 'Mouse Pad',
+        precio: 2300,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce08"),
+        id: 7,
+        nombre: 'Pendrive',
+        precio: 2860,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce09"),
+        id: 8,
+        nombre: 'Parlante',
+        precio: 3350,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce0a"),
+        id: 9,
+        nombre: 'Celular',
+        precio: 4320,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 0 }
+        { _id: ObjectId("632cbef7581e3554d654ce0b"),
+        id: 910,
+        nombre: 'Notebook',
+        precio: 4990,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 0 }
+        { _id: ObjectId("632cc07c581e3554d654ce0c"),
+        nombre: 'Tablet',
+        precio: 3950,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+
+    e)
+        db.productos.deleteMany({precio: {$lt: 1000}})
+        { acknowledged: true, deletedCount: 3 }
+        db.productos.find()
+        { _id: ObjectId("632cbef7581e3554d654ce05"),
+        id: 4,
+        nombre: 'Monitor',
+        precio: 1280,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce06"),
+        id: 5,
+        nombre: 'Auricular',
+        precio: 1700,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce07"),
+        id: 6,
+        nombre: 'Mouse Pad',
+        precio: 2300,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce08"),
+        id: 7,
+        nombre: 'Pendrive',
+        precio: 2860,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce09"),
+        id: 8,
+        nombre: 'Parlante',
+        precio: 3350,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+        { _id: ObjectId("632cbef7581e3554d654ce0a"),
+        id: 9,
+        nombre: 'Celular',
+        precio: 4320,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 0 }
+        { _id: ObjectId("632cbef7581e3554d654ce0b"),
+        id: 910,
+        nombre: 'Notebook',
+        precio: 4990,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 0 }
+        { _id: ObjectId("632cc07c581e3554d654ce0c"),
+        nombre: 'Tablet',
+        precio: 3950,
+        fotoUrl: 'https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png',
+        stock: 100 }
+
+6)
+    use admin
+    'switched to db admin'
+    db.createUser({
+        user: "pepe",
+        pwd: "asd456",
+        roles: [
+            { role: "read", db: "ecommerce"}
+        ]
+    })
+    { ok: 1 }
+    use pepe
+    'switched to db pepe'
+    db.productos.deleteMany({precio: {$lt: 1000}})
+    MongoServerError: command delete requires authentication

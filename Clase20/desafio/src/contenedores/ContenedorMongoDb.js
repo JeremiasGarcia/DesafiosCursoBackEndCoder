@@ -6,8 +6,6 @@ await mongoose.connect(config.atlas.strConn);
 
 class ContenedorMongoDb{
     constructor(nombreColeccion, esquema){
-        this.nombreColeccion = nombreColeccion;
-        this.esquema = esquema;
         this.coleccion = mongoose.model(nombreColeccion, esquema);
     }
 
@@ -47,7 +45,7 @@ class ContenedorMongoDb{
         try {
             const docs = await this.coleccion.updateOne({ '_id': id }, nuevoObj);
             if (docs.length == 0) {
-                throw new Error('Elemento no encontrado');
+                throw new Error('Elemento no encontrado: No se pudo actualizar');
             }else{
                 return docs;
             }
@@ -60,7 +58,7 @@ class ContenedorMongoDb{
         try {
             const docs = await this.coleccion.deleteOne({'_id': id});
             if (docs.length == 0) {
-                throw new Error('Elemento no encontrado');
+                throw new Error('Elemento no encontrado: No se pudo eliminar');
             }else{
                 return docs;
             }

@@ -1,9 +1,11 @@
 import { Router } from 'express';
-// import { productosDao as productosApi, carritosDao as carritosApi } from './daos/index.js'
-import ProductosDaoMongoDb from '../daos/productos/ProductosDaoMongoDb.js';
+import { productosDao as apiProductos } from '../daos/index.js'
+// import ProductosDaoMongoDb from '../daos/productos/ProductosDaoMongoDb.js';
+// import ProductosDaoFirebase from '../daos/productos/ProductosDaoFirebase.js';
 
 const productosRouter = Router();
-const apiProductos = new ProductosDaoMongoDb();
+// const apiProductos = new ProductosDaoMongoDb();
+// const apiProductos = new ProductosDaoFirebase();
 
 productosRouter.get('/', async (req, res)=> {
     const productos = await apiProductos.listarTodos();

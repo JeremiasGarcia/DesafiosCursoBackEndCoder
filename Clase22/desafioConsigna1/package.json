@@ -19,5 +19,8 @@
     "mysql2": "^2.3.3",
     "socket.io": "^4.5.2"
   },
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "@faker-js/faker": "^7.5.0"
+  }
 }

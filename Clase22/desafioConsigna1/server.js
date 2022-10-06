@@ -1,18 +1,14 @@
 /*-------------------------- Modulos ------------------------*/
-// const express = require('express');
-// const path = require('path');
-// const exphbs = require('express-handlebars');
-// const { Server: HttpServer } = require('http');
-// const { Server: IOServer } = require('socket.io');
-
 import express from 'express';
 import * as path from 'path'
 import { engine } from 'express-handlebars';
 import { createServer as HttpServer } from "http";
 import { Server as IOServer } from "socket.io";
 
-// import { Contenedor } from "./container/ContenedorSQL3.js";
-import { Contenedor } from "./container/ContenedorMDB.js";
+import { Contenedor as ContenedorSQL3 } from "./container/ContenedorSQL3.js";
+import { Contenedor as ContenedorMDB } from "./container/ContenedorMDB.js";
+
+import { faker } from '@faker-js/faker';
 
 
 /*-------------------- Instancia de servidor ----------------*/
@@ -36,20 +32,41 @@ app.set('views', './views');
 app.set('view engine', 'hbs');
 
 /*---------------------- Base de datos ----------------------*/
-// const DB_MENSAJES = [
-//     { author: "Juan", text: "¡Hola! ¿Que tal?" },
-//     { author: "Pedro", text: "¡Muy bien! ¿Y vos?" },
-//     { author: "Ana", text: "¡Genial!" }
-// ]
+const DB_MENSAJES = [
+    { author: "Juan", text: "¡Hola! ¿Que tal?" },
+    { author: "Pedro", text: "¡Muy bien! ¿Y vos?" },
+    { author: "Ana", text: "¡Genial!" }
+]
 
-const DB_PRODUCTOS = [
-    // { 
-    //     id: 1,
-    //     nombre: "Calculadora",
-    //     precio: 99.99,
-    //     fotoUrl: "https://cdn3.iconfinder.com/data/icons/education-209/64/calculator-math-tool-school-512.png" 
-    // }
-];
+/*------------------------ Rutas -------------------------*/
+const apiProductos = new ContenedorMDB('productos');
+
+app.get('/', async (req, res)=> {
+    const productos = await apiProductos.listarTodos();
+    res.render('vista', {productos});
+});
+
+app.get('/api/productos-test', (req, res)=> {
+    let randomNombre;
+    let randomPrecio;
+    let randomFotoUrl;
+    let prod = {};
+    let prods = [];
+    for (let i = 0; i < 4; i++) {
+        randomNombre = faker.commerce.productName();
+        randomPrecio = faker.commerce.price();
+        randomFotoUrl = faker.image.business();
+        prod = {nombre: randomNombre, precio: randomPrecio, fotoUrl: randomFotoUrl };
+        prods.push(prod);
+    }
+    res.render('random', {prods});
+});
+
+app.post('/productos', async (req, res)=>{
+    const resp = await apiProductos.insertar(req.body);
+    res.redirect('/');
+
+});
 
 /*------------------------ Servidor -------------------------*/
 const PORT = 3000;
@@ -58,26 +75,19 @@ const server = httpServer.listen(PORT, ()=>{
 })
 
 /*------------------------- WebSocket -----------------------*/
-const apiMensajes = new Contenedor('mensajes');
+const apiMensajes = new ContenedorSQL3('mensajes');
 
 io.on('connection', async (socket)=>{
-    let res;
-    console.log(`Nuevo cliente conectado! ${socket.id}`);
-    //2) Seleccionar todos los registros
-    res = await apiMensajes.listarTodos();
-    // console.log('Recupera todos los registros', res);
+    // let res;
+    // res = await apiMensajes.listarTodos();
+    // console.log(`Nuevo cliente conectado! ${socket.id}`);
+    // socket.emit('from-server-mensajes', {res});
+    // // socket.emit('from-server-mensajes', {DB_MENSAJES});
 
-    // socket.emit('from-server-mensajes', {DB_MENSAJES});
-    socket.emit('from-server-mensajes', res);
-
-
-    
-    
-    socket.on('from-client-mensaje', async mensaje => {
-        //1) Inserta en base de datos
-        res = await apiMensajes.insertar(mensaje)
-        // console.log('Inserta en tabla', res);
-        // DB_MENSAJES.push(mensaje);
-        io.sockets.emit('from-server-mensajes', res);
-    });
+    // socket.on('from-client-mensaje', async mensaje => {
+    //     res = await apiMensajes.insertar(mensaje);
+    //     io.sockets.emit('from-server-mensajes', {res});
+    //     // DB_MENSAJES.push(mensaje);
+    //     // io.sockets.emit('from-server-mensajes', {DB_MENSAJES});
+    // });
 })

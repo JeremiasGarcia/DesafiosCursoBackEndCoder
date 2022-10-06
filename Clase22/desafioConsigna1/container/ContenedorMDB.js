@@ -3,7 +3,7 @@ import { config } from '../utils/config.js';
 
 export class Contenedor {
     constructor(tableName){
-        this.knexCli = knex(config.db);
+        this.knexCli = knex(config.dbMDB);
         this.tableName = tableName;
     }
 

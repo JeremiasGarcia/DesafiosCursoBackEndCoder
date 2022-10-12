@@ -1,10 +1,16 @@
 <div class="container mt-5 mb-5">
-    <h3>Chat WebSocket!</h3>
+    <h3>Chat WebSocket! </h3>
+    <h3 id="compresion-info"></h3>
     <form>
         <div class="form-group">
-            <label for="user">Usuario:</label>
-            <input type="text" class="form-control" id="user" aria-describedby="userComment">
-            <small id="userComment" class="form-text text-muted">Usuario que se utilizara al enviar mensajes.</small>
+            {{!-- <label for="user">Usuario:</label> --}}
+            <input type="email" class="form-control" id="email" placeholder="Ingresá tu email"><br>
+            <input type="text" class="form-control" id="user" placeholder="Ingresá tu nombre"><br>
+            <input type="text" class="form-control" id="apellido" placeholder="Ingresá tu apellido"><br>
+            <input type="number" class="form-control" id="edad" placeholder="Ingresá tu edad"><br>
+            <input type="text" class="form-control" id="alias" placeholder="Ingresá tu alias"><br>
+            <input type="url" class="form-control" id="avatar" placeholder="Ingresá tu avatar(url)"><br>
+            {{!-- <small id="userComment" class="form-text text-muted">Usuario que se utilizara al enviar mensajes.</small> --}}
         </div>
         <div class="form-group">
             <label for="contenidoMensaje">Mensaje:</label>

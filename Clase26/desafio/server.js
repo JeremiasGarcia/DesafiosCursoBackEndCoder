@@ -146,7 +146,7 @@ app.post('/login', passport.authenticate('local',  {successRedirect: '/vista', f
 app.post('/register', async (req, res)=>{
     const {nombre, password, direccion } = req.body;
     
-    // const newUsuario = usuariosDB.find(usuario => usuario.nombre == nombre);
+    // const newUsuarioo = usuariosDB.find(usuario => usuario.nombre == nombre);
     const newUsuario = await apiUsuarios.listar(nombre);
     if (newUsuario) {
         res.render('register-error')
